@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Course Registration Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">📚</span>
+                <h2>CoursePortal</h2>
+            </div>
+
+            <div class="user-snippet">
+                <div class="user-avatar" id="sidebarAvatar">U</div>
+                <div class="user-info">
+                    <p class="user-name" id="sidebarUserName">User Name</p>
+                    <p class="user-role">Student</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-target="view-courses">
+                    <span class="nav-icon">📖</span> View Courses
+                </button>
+                <button class="nav-item" data-target="enrolled-courses">
+                    <span class="nav-icon">🎓</span> Enrolled Courses
+                </button>
+                <button class="nav-item" data-target="settings">
+                    <span class="nav-icon">⚙️</span> Settings
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="nav-item text-danger" id="logoutBtn">
+                    <span class="nav-icon">🚪</span> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span>☰</span>
+                </div>
+                <h1 id="pageTitle">View Courses</h1>
+            </header>
+
+            <div class="content-container">
+
+                <!-- View Courses Section -->
+                <section id="view-courses" class="tab-pane active">
+                    <div class="section-header">
+                        <h2>Available Courses</h2>
+                        <p>Browse and enroll in our courses.</p>
+                    </div>
+
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-image bg-blue">
+                                <span>🗄️</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>DBMS (Database Management Systems)</h3>
+                                <p>Learn SQL, normalization, and database design principles.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="DBMS">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image bg-orange">
+                                <span>☕</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Java</h3>
+                                <p>Master object-oriented programming, data structures, and APIs in Java.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="Java">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image bg-green">
+                                <span>🐍</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Python</h3>
+                                <p>Introduction to Python, Pandas, NumPy, and basic machine learning.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="Python">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image bg-blue">
+                                <span>💻</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Web Development</h3>
+                                <p>Learn HTML, CSS, JavaScript, and modern frontend frameworks.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="Web Development">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image bg-orange">
+                                <span>📊</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Data Science</h3>
+                                <p>Explore data analysis, visualization, and statistical modeling.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="Data Science">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image bg-green">
+                                <span>☁️</span>
+                            </div>
+                            <div class="course-content">
+                                <h3>Cloud Computing</h3>
+                                <p>Understand cloud architecture, AWS services, and deployment.</p>
+                                <div class="course-footer">
+                                    <button class="btn btn-primary btn-sm enroll-init-btn"
+                                        data-course="Cloud Computing">Enroll</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Enrolled Courses Section -->
+                <section id="enrolled-courses" class="tab-pane">
+                    <div class="section-header">
+                        <h2>Enrolled Courses</h2>
+                        <p>Track the courses you are currently enrolled in.</p>
+                    </div>
+
+                    <div class="enrolled-list" id="enrolledListContainer">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <div class="empty-state" id="emptyEnrollments">
+                        <span class="empty-icon">📭</span>
+                        <h3>No Enrollments Yet</h3>
+                        <p>You haven't enrolled in any courses.</p>
+                        <button class="btn btn-primary switch-tab-btn" data-target="view-courses">Browse
+                            Courses</button>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="tab-pane">
+                    <div class="section-header">
+                        <h2>Account Settings</h2>
+                        <p>Manage your profile and account details.</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar" id="settingsAvatar">U</div>
+                            <div>
+                                <h3 id="settingsName">User Name</h3>
+                                <p class="text-muted" id="settingsEmail">user@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-details">
+                            <div class="detail-group">
+                                <label>Full Name</label>
+                                <div class="detail-value" id="displaySettingsName">User Name</div>
+                            </div>
+                            <div class="detail-group">
+                                <label>Email Address</label>
+                                <div class="detail-value" id="displaySettingsEmail">user@example.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Enrollment Form Modal -->
+    <div class="modal-overlay" id="enrollModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Enroll in Course</h3>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="enroll-course-text">Course: <strong id="modalCourseName" class="badge-primary">DBMS</strong>
+                </p>
+                <form id="enrollmentForm" class="auth-form">
+                    <input type="hidden" id="enrollCourseHidden">
+                    <div class="form-group">
+                        <label for="enrollName">Name</label>
+                        <div class="input-container">
+                            <input type="text" id="enrollName" required placeholder="Enter your name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enrollPhone">Phone Number</label>
+                        <div class="input-container">
+                            <input type="tel" id="enrollPhone" required placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enrollEmail">Email</label>
+                        <div class="input-container">
+                            <input type="email" id="enrollEmail" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div id="enrollError" class="error-message"></div>
+                    <button type="submit" class="btn btn-primary btn-full">Submit Enrollment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

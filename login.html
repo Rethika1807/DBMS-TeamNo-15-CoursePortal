@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Course Registration Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo-circle">
+                    <span>🔒</span>
+                </div>
+                <h2>Welcome Back</h2>
+                <p>Login to your account to continue</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-container">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="input-container">
+                        <span class="input-icon">🔑</span>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                <p class="back-home"><a href="index.html">← Back to Home</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
